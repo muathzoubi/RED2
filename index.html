@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>  إعادة التوجيه   </title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        text-align: center;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+      }
+      #countdown {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 1rem 0;
+        color: #007bff;
+      }
+      #redirectButton {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      #redirectButton:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+   
+      <p id="countdownText" aria-live="polite">
+        سيتم إعادة التوجيه تلقائيًا خلال
+        <span id="countdown" aria-hidden="true">10</span> ثوانٍ
+      </p>
+      <button id="redirectButton">إعادة التوجيه الآن</button>
+    </div>
+
+    <script>
+      let countdown = 10;
+      const countdownElement = document.getElementById('countdown');
+      const countdownTextElement = document.getElementById('countdownText');
+      const redirectButton = document.getElementById('redirectButton');
+
+      function updateCountdown() {
+        countdownElement.textContent = countdown;
+        countdownTextElement.setAttribute(
+          'aria-label',
+          `سيتم إعادة التوجيه تلقائيًا خلال ${countdown} ثوانٍ`
+        );
+
+        if (countdown <= 0) {
+          redirect();
+        } else {
+          countdown--;
+          setTimeout(updateCountdown, 1000);
+        }
+      }
+
+      function redirect() {
+        window.location.href = '/destination.html';
+      }
+
+      redirectButton.addEventListener('click', redirect);
+
+      updateCountdown();
+    </script>
+  </body>
+</html>
