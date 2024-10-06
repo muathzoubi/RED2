@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>  إعادة التوجيه   </title>
-    <style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Cairo", system-ui;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -35,7 +36,8 @@
         color: white;
         border: none;
         padding: 0.5rem 1rem;
-        font-size: 1rem;
+        font-size: 1rem;  font-family: "Cairo", system-ui;
+
         border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s;
@@ -77,7 +79,7 @@
       }
 
       function redirect() {
-        window.location.href = '/destination.html';
+        window.location.href = '/#';
       }
 
       redirectButton.addEventListener('click', redirect);
